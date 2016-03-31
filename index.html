@@ -13,46 +13,45 @@
             <div class="number"><%= '#'+player.number %></div>  
             <div class="name"><%= player.name %></div> 
             <div class="position"><%= player.position %></div>
-    </script>
-<!--    <script>
-        $(function() {
-            $( ".draggable" ).draggable();
-        });
-    </script>
-<!--
-    <script type = "text/template" id="pitch">
-        <div class="pitch" id="pitch <%= pitchXI.id %>">
-            <ul class="forward"></ul>
-            <ul class="midfield"></ul>
-            <ul class="backfield"></ul>
-            <ul class="goal"></ul>
-        </div>
-    </script>
--->
-    
+    </script>   
 </head>
 
 <body>
-    <!--div id="bg">
-        <img src="resource/background2.jpg" alt="">
-    </div-->
     <div class="pad">
-    <div class="interactive">
-        <div class="cardXI">
-            <h2>Starting XI</h2>
-            <ul id="cardXI">
-                <li class="slot" id="one">G</li>
-                <li class="slot" id="two">RB</li>
-                <li class="slot" id="three">CRB</li>
-                <li class="slot" id="four">CLB</li>
-                <li class="slot" id="five">LB</li>
-                <li class="slot" id="six">RM</li>
-                <li class="slot" id="seven">CRM</li>
-                <li class="slot" id="eight">CLM</li>
-                <li class="slot" id="nine">LM</li>
-                <li class="slot" id="ten">RS</li>
-                <li class="slot" id="eleven">LS</li>
-            </ul>
+        <div class="interactive">
+            <div class="cardXI">
+                <h2>Starting XI</h2>
+                <ul id="cardXI">
+                    <li class="slot" id="one">G</li>
+                    <li class="slot" id="two">RB</li>
+                    <li class="slot" id="three">CRB</li>
+                    <li class="slot" id="four">CLB</li>
+                    <li class="slot" id="five">LB</li>
+                    <li class="slot" id="six">RM</li>
+                    <li class="slot" id="seven">CRM</li>
+                    <li class="slot" id="eight">CLM</li>
+                    <li class="slot" id="nine">LM</li>
+                    <li class="slot" id="ten">RS</li>
+                    <li class="slot" id="eleven">LS</li>
+                </ul>
+            </div>
+            <div>
+                <div class="userInputs">
+                    <h2>Reserves</h2>
+                    <input type="text" id="search-box" placeholder="Player name">
+                    
+                    <label for="goalies">Goalies</label>
+                    <input type="radio" id="goalies" name="position">
+                    <label for="defenders">Defenders</label>
+                    <input type="radio" id="defenders" name="position">
+                    <label for="midfielders">Midfielders</label>
+                    <input type="radio" id="midfielders" name="position">
+                    <label for="forwards">Forwards</label>
+                    <input type="radio" id="forwards" name="position">
+                </div>
+                <section class="reserves" id="reserves">
+                </section>
+            </div>
         </div>
         <div class="pitch">
             <h2>Pitch Graphic</h2>
@@ -61,11 +60,6 @@
             <ul id="defense">Defense</ul>
             <ul id="goal">Goal</ul>
         </div>
-    </div>
-    <h2>Reserves</h2>
-    <section class="reserves" id="reserves">
-        <!--div id="reserves"></div-->
-    </section>
     </div>
 </body>
 

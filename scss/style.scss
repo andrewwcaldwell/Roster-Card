@@ -1,24 +1,4 @@
-//scss
-/*
-#bg {
-    position: fixed;
-    top: -50%;
-    left: -50%; 
-    width: 200%; 
-    height: 200%;
-}
-#bg img {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    z-index: -1;
-    margin: auto; 
-    min-width: 50%;
-    min-height: 50%;
-}
-*/
+////// Background Image and Base Pad //////
 body {
     background-image: url(../resource/background2.jpg);
     background-size: cover;
@@ -32,6 +12,9 @@ body {
     padding-left: 10%;
     padding-right: 10%;   
 }
+
+
+////// Top Div of Roster Area //////
 .interactive {
     background-color: black;
     display: flex;
@@ -41,44 +24,29 @@ body {
     width: 100%;
     margin: 0;
 }
-ul {
-    list-style-type: none;
-    border: 1px solid purple;
-    text-align: center;
-}
-.drop-hover {
-    background-color: darkgreen;
-}
 .cardXI {
     background-color: black;
     color: white;
     text-align: center;
     height: 100%;
-    width: 60%;
+    width: 100%;
     margin: 0;
     
     border: 2px solid red;
 }
-.pitch {
-    background-image: url('../resource/pitch_360.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.userInputs {
+    display: flex;
+    flex-direction: row;
     color: white;
-    text-align: center;
-    opacity: 0.95;
-    height: 100%;
-    width: 40%;
-    
-    border: 2px solid blue;
 }
-.slot {
-    height: 40px;
-    width: 100%;
-    margin: 0;
+h2 {
+    background-color: black;
+    text-align: center;
     color: white;
-    border: 1px solid white;
-    
+    font-size: 20px;
+    width: auto;
+    height: 30px;
+    margin: 0;
 }
 .reserves {
     display: flex;
@@ -90,6 +58,16 @@ ul {
     background-color: black;
     //opacity: 0.75;
     color: white;
+}
+////// Hover State for Droppables //////
+.drop-hover {
+    background-color: darkgreen;
+}
+
+ul {
+    list-style-type: none;
+    border: 1px solid purple;
+    text-align: center;
 }
 .footballer {
     display: flex;
@@ -104,15 +82,31 @@ ul {
     border-radius: 20px;
     margin: 10px;
 }
+.slot {
+    height: 40px;
+    width: 100%;
+    margin: 0;
+    color: white;
+    border: 1px solid white;
+    
+}
 .name, .number, .position {
     margin: 5px;
 }
-h2 {
-    background-color: black;
-    text-align: center;
+
+
+////// Bottom Pitch Graphic //////
+.pitch {
+    background-image: url('../resource/pitch_360.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     color: white;
-    font-size: 20px;
-    width: 100%;
-    height: 30px;
-    margin: 0;
+    text-align: center;
+    opacity: 0.95;
+    height: 100%;
+    width: 40%;
+    
+    border: 2px solid blue;
 }
+
