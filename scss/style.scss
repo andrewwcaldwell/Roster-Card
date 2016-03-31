@@ -7,67 +7,90 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin: 0;
 }
-.pad {
+.basePad {
     padding-left: 10%;
-    padding-right: 10%;   
+    padding-right: 10%;
+    padding-top: 30px;
 }
-
-
-////// Top Div of Roster Area //////
-.interactive {
-    background-color: black;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    height: 550px;
-    width: 100%;
-    margin: 0;
-}
-.cardXI {
-    background-color: black;
-    color: white;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    
-    border: 2px solid red;
-}
-.userInputs {
-    display: flex;
-    flex-direction: row;
-    color: white;
+ul {
+    list-style-type: none;
+    padding: 0;
 }
 h2 {
     background-color: black;
     text-align: center;
     color: white;
-    font-size: 20px;
-    width: auto;
-    height: 30px;
+    font-size: 30px;
+    height: 50px;
     margin: 0;
 }
+
+////// Parent Container of Interactive Section //////
+.container {
+    background-color: black;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: row;
+    height: 550px;
+    width: 100%;
+    margin: 0;
+}
+
+////// Left-Hand Section -- Red Outline //////
+.leftPayne {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 100%;
+    width: 25%;
+    margin: 0;
+    
+    border: 2px solid red;
+}
+.gamePosition {
+    display: flex;
+    flex-direction: column;
+    //width: 300px;
+    margin: 0;
+    padding: 0;
+    
+    //border: 1px solid purple;
+}
+.slot {
+    text-align: center;
+    color: white;
+    height: 40px;
+    //width: 300px;
+    margin: 0;
+    
+    border: 1px solid green;
+}
+
+/////// Right-Hand Section -- Cyan Outline //////
+.rightPayne {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    
+    border: 1px solid cyan;
+}
+.inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white;
+}
+
+////// Rules on JS Template Created Elements //////
 .reserves {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-    height: auto;
     //overflow: scroll;
     background-color: black;
-    //opacity: 0.75;
     color: white;
-}
-////// Hover State for Droppables //////
-.drop-hover {
-    background-color: darkgreen;
-}
-
-ul {
-    list-style-type: none;
-    border: 1px solid purple;
-    text-align: center;
 }
 .footballer {
     display: flex;
@@ -80,20 +103,11 @@ ul {
     color: white;
     border: 1px solid darkgray;
     border-radius: 20px;
-    margin: 10px;
-}
-.slot {
-    height: 40px;
-    width: 100%;
-    margin: 0;
-    color: white;
-    border: 1px solid white;
-    
+    margin: 5px;
 }
 .name, .number, .position {
     margin: 5px;
 }
-
 
 ////// Bottom Pitch Graphic //////
 .pitch {
@@ -105,8 +119,12 @@ ul {
     text-align: center;
     opacity: 0.95;
     height: 100%;
-    width: 40%;
+    width: 500px;
     
-    border: 2px solid blue;
+    border: 1px solid blue;
 }
 
+////// Hover State Rule for Droppables JS //////
+.drop-hover {
+    background-color: darkgreen;
+}

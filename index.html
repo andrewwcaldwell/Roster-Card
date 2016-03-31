@@ -17,11 +17,11 @@
 </head>
 
 <body>
-    <div class="pad">
-        <div class="interactive">
-            <div class="cardXI">
+    <div class="basePad">
+        <div class="container">
+            <section class="leftPayne">
                 <h2>Starting XI</h2>
-                <ul id="cardXI">
+                <ul class="gamePosition">
                     <li class="slot" id="one">G</li>
                     <li class="slot" id="two">RB</li>
                     <li class="slot" id="three">CRB</li>
@@ -34,9 +34,9 @@
                     <li class="slot" id="ten">RS</li>
                     <li class="slot" id="eleven">LS</li>
                 </ul>
-            </div>
-            <div>
-                <div class="userInputs">
+            </section>
+            <section class="rightPayne">
+                <div class="inputs">
                     <h2>Reserves</h2>
                     <input type="text" id="search-box" placeholder="Player name">
                     
@@ -48,10 +48,11 @@
                     <input type="radio" id="midfielders" name="position">
                     <label for="forwards">Forwards</label>
                     <input type="radio" id="forwards" name="position">
-                </div>
+                </div>                
                 <section class="reserves" id="reserves">
+<!---- This is where Template Items Go -->
                 </section>
-            </div>
+            </section>
         </div>
         <div class="pitch">
             <h2>Pitch Graphic</h2>
