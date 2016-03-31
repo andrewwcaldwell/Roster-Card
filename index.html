@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Drag n Drop Game Card</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
+    <script src="js/app.js"></script>
+    
+    <script type="text/template" id="tempRoster">
+            <div class="number"><%= '#'+player.number %></div>  
+            <div class="name"><%= player.name %></div> 
+            <div class="position"><%= player.position %></div>
+    </script>
+<!--    <script>
+        $(function() {
+            $( ".draggable" ).draggable();
+        });
+    </script>
+<!--
+    <script type = "text/template" id="pitch">
+        <div class="pitch" id="pitch <%= pitchXI.id %>">
+            <ul class="forward"></ul>
+            <ul class="midfield"></ul>
+            <ul class="backfield"></ul>
+            <ul class="goal"></ul>
+        </div>
+    </script>
+-->
+    
+</head>
+
+<body>
+    <!--div id="bg">
+        <img src="resource/background2.jpg" alt="">
+    </div-->
+    <div class="pad">
+    <div class="interactive">
+        <div class="cardXI">
+            <h2>Starting XI</h2>
+            <ul id="cardXI">
+                <li class="slot" id="one">G</li>
+                <li class="slot" id="two">RB</li>
+                <li class="slot" id="three">CRB</li>
+                <li class="slot" id="four">CLB</li>
+                <li class="slot" id="five">LB</li>
+                <li class="slot" id="six">RM</li>
+                <li class="slot" id="seven">CRM</li>
+                <li class="slot" id="eight">CLM</li>
+                <li class="slot" id="nine">LM</li>
+                <li class="slot" id="ten">RS</li>
+                <li class="slot" id="eleven">LS</li>
+            </ul>
+        </div>
+        <div class="pitch">
+            <h2>Pitch Graphic</h2>
+            <ul id="forward">Forward</ul>
+            <ul id="midfield">Midfield</ul>
+            <ul id="defense">Defense</ul>
+            <ul id="goal">Goal</ul>
+        </div>
+    </div>
+    <h2>Reserves</h2>
+    <section class="reserves" id="reserves">
+        <!--div id="reserves"></div-->
+    </section>
+    </div>
+</body>
+
+</html>
