@@ -1,24 +1,4 @@
-//scss
-/*
-#bg {
-    position: fixed;
-    top: -50%;
-    left: -50%; 
-    width: 200%; 
-    height: 200%;
-}
-#bg img {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    right: 0; 
-    bottom: 0;
-    z-index: -1;
-    margin: auto; 
-    min-width: 50%;
-    min-height: 50%;
-}
-*/
+////// Background Image and Base Pad //////
 body {
     background-image: url(../resource/background2.jpg);
     background-size: cover;
@@ -27,68 +7,89 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    margin: 0;
 }
-.pad {
+.basePad {
     padding-left: 10%;
-    padding-right: 10%;   
+    padding-right: 10%;
+    padding-top: 30px;
 }
-.interactive {
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+h2 {
     background-color: black;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+    height: 50px;
+    margin: 0;
+}
+
+////// Parent Container of Interactive Section //////
+.container {
+    background-color: black;
+    opacity: 0.7;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     height: 550px;
     width: 100%;
     margin: 0;
 }
-ul {
-    list-style-type: none;
-    border: 1px solid purple;
-    text-align: center;
-}
-.drop-hover {
-    background-color: darkgreen;
-}
-.cardXI {
+
+////// Left-Hand Section -- Red Outline //////
+.leftPayne {
     background-color: black;
     color: white;
     text-align: center;
     height: 100%;
-    width: 60%;
+    width: 25%;
     margin: 0;
     
     border: 2px solid red;
 }
-.pitch {
-    background-image: url('../resource/pitch_360.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    color: white;
-    text-align: center;
-    opacity: 0.95;
-    height: 100%;
-    width: 40%;
+.gamePosition {
+    display: flex;
+    flex-direction: column;
+    //width: 300px;
+    margin: 0;
+    padding: 0;
     
-    border: 2px solid blue;
+    //border: 1px solid purple;
 }
 .slot {
-    height: 40px;
-    width: 100%;
-    margin: 0;
+    text-align: center;
     color: white;
-    border: 1px solid white;
+    height: 40px;
+    //width: 300px;
+    margin: 0;
     
+    border: 1px solid green;
 }
+
+/////// Right-Hand Section -- Cyan Outline //////
+.rightPayne {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    
+    border: 1px solid cyan;
+}
+.inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    color: white;
+}
+
+////// Rules on JS Template Created Elements //////
 .reserves {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 100%;
-    height: auto;
     //overflow: scroll;
     background-color: black;
-    //opacity: 0.75;
     color: white;
 }
 .footballer {
@@ -102,17 +103,28 @@ ul {
     color: white;
     border: 1px solid darkgray;
     border-radius: 20px;
-    margin: 10px;
+    margin: 5px;
 }
 .name, .number, .position {
     margin: 5px;
 }
-h2 {
-    background-color: black;
-    text-align: center;
+
+////// Bottom Pitch Graphic //////
+.pitch {
+    background-image: url('../resource/pitch_360.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     color: white;
-    font-size: 20px;
-    width: 100%;
-    height: 30px;
-    margin: 0;
+    text-align: center;
+    opacity: 0.95;
+    height: 100%;
+    width: 500px;
+    
+    border: 1px solid blue;
+}
+
+////// Hover State Rule for Droppables JS //////
+.drop-hover {
+    background-color: darkgreen;
 }
