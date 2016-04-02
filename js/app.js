@@ -10,7 +10,22 @@ function filterPlayers(players, comparative) {
             var hide = document.getElementById('p-' + players[i].id);
             hide.classList.add('radioHide');
         }
-    console.log(players[i].id)
+    //console.log(players[i].id);
+    }
+}
+// Highlight Function for Radio Buttons
+function highlightPlayers(players, comparative) {
+    for (var i = 0; i < players.length; i++) {
+        // Highlight it.
+        if (players[i].position === comparative) {
+            var show = document.getElementById('p-' + players[i].id);
+            show.classList.add('highlight');
+            // Dont Higlight.
+        } else {
+            var hide = document.getElementById('p-' + players[i].id);
+            hide.classList.remove('highlight');
+        }
+    //console.log(players[i].id);
     }
 }
 
@@ -61,29 +76,38 @@ window.addEventListener('load', function () {
     // Radio Button Interactions
     var g = document.getElementById('goalies');
     g.addEventListener('click', function () {
-        filterPlayers(players, 'G');
+        highlightPlayers(players, 'G');
     });
     
     var d = document.getElementById('defenders');
     d.addEventListener('click', function () {
-        filterPlayers(players, 'D');
+        highlightPlayers(players, 'D');
     });
 
     var m = document.getElementById('midfielders');
     m.addEventListener('click', function () {
-        filterPlayers(players, 'M');
+        highlightPlayers(players, 'M');
     });
     
     var f = document.getElementById('forwards');
     f.addEventListener('click', function () {
-        filterPlayers(players, 'F');
+        highlightPlayers(players, 'F');
     });
-    
+    /// All Radio For Filter Players 
+    /* 
     var all = document.getElementById('all');
     all.addEventListener('click', function () {
         for (var i = 0; i < players.length; i++) {
         var show = document.getElementById('p-' + players[i].id);
-            show.classList.remove('hidden');
+            show.classList.remove('radioHide');
+        }
+    });
+    */    
+    var all = document.getElementById('all');
+    all.addEventListener('click', function () {
+        for (var i = 0; i < players.length; i++) {
+        var hide = document.getElementById('p-' + players[i].id);
+            hide.classList.remove('highlight');
         }
     });
     
