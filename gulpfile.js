@@ -9,7 +9,7 @@ var uglify = require('gulp-uglify');
 gulp.task('default', ['html', 'sass', 'js', 'img']);
 
 gulp.task('html', function () {
-    return gulp.src('./index.html')
+    return gulp.src('./*.html')
         .pipe(htmlhint())
         .pipe(htmlhint.failReporter())
         .pipe(htmlmin({collapseWhitespace: true}))
@@ -23,7 +23,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('js', function () {
-    return gulp.src('./js/app.js')
+    return gulp.src('./js/*.js')
         .pipe(gulpBrowser.browserify())
         .pipe(gulp.dest('./public/js/'));
 });

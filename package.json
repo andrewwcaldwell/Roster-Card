@@ -4,6 +4,7 @@
   "description": "Drag-n-Drop Game Card",
   "main": "gulpfile.js",
   "dependencies": {
+    "firebase": "^2.4.2",
     "gulp": "^3.9.1",
     "gulp-browser": "^1.1.1",
     "gulp-htmlhint": "^0.3.1",
