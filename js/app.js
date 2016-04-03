@@ -28,9 +28,14 @@ function highlightPlayers(players, comparative) {
     //console.log(players[i].id);
     }
 }
+var players = require('firebase');
+console.log(players);
 
+//// Start Interactions / Window Event
 window.addEventListener('load', function () {
-    var players = require('./players');
+    //var players = require('./players');
+    //console.log(players);
+    //var players = require('firebase');
     //console.log(players);
     
     var parent = document.getElementById('reserves');
@@ -110,6 +115,15 @@ window.addEventListener('load', function () {
             hide.classList.remove('highlight');
         }
     });
+    
+    
+    // Firebase set code from Form.js
+    /*
+    
+    var fbPlayer = new Firebase('https://team-roster.firebaseio.com/players/' + newPlayer.id);
+        fbPlayer.set(newPlayer, function () {
+            console.log('New dude added');
+    */
     
     /*
     var one = document.getElementById('one');
