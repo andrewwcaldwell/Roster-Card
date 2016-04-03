@@ -55,21 +55,23 @@ window.addEventListener('load', function () {
     
     }
     $('.footballer').draggable( {
+        containment: 'document',
         revert: true,
         cursor: 'crosshair',
+        //snap: true,
+        //snapMode: inner,
     });  
     
-    $(".slot").droppable({
-        hoverClass: "drop-hover",
-        tolerance: 'fit',
-        drop: function(event, ui) { 
-            //$(this).html(ui.draggable.remove().html());
-            $(this).droppable('widget');
-            console.log(widget);
-            },
-        //out: function(event, ui){
-            //$(this).droppable('option', 'accept', '.drag-item');
-            //} 
+    $('.slot').droppable({
+        hoverClass: 'drop-hover',
+        tolerance: 'pointer',
+        drop: function(event, ui) {
+            var dropped = ui.draggable;
+            var droppedOn = $(this);
+            $(droppedOn).text('');
+            $(dropped).detach().css({top: 0,left: 0, 'z-index': 1}).appendTo(droppedOn);
+        },
+        
     });
     
     
