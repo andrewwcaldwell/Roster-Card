@@ -49,7 +49,7 @@ window.addEventListener('load', function () {
     console.log(players.id);
     
     for (var i = 0; i < players.length; i++) {
-        //console.log(players[i].id);
+        console.log(players[i].i);
         
         
         var data = form ({
