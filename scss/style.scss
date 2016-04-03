@@ -23,7 +23,7 @@ h2 {
     text-align: center;
     color: white;
     font-size: 30px;
-    height: 50px;
+    height: auto;
     margin: 0;
 }
 
@@ -79,8 +79,11 @@ h2 {
 .inputs {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     color: white;
+    
+    border: 1px solid white;
 }
 
 ////// Rules on JS Template Created Elements //////
@@ -88,7 +91,11 @@ h2 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    
+    
     //overflow: scroll;
+    
+    
     background-color: black;
     color: white;
 }
@@ -127,4 +134,14 @@ h2 {
 ////// Hover State Rule for Droppables JS //////
 .drop-hover {
     background-color: darkgreen;
+}
+
+////// Radio Button JS Rules //////
+.radioHide {
+    //display: none;
+}
+.highlight {
+    background: linear-gradient(to bottom right, #fff400, #FF9A00);
+    border: 1px solid white;
+    opacity: .85;
 }

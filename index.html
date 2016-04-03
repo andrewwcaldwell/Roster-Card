@@ -38,8 +38,9 @@
             <section class="rightPayne">
                 <div class="inputs">
                     <h2>Reserves</h2>
+<!---- Filter Input Field Here>
                     <input type="text" id="search-box" placeholder="Player name">
-                    
+<!---- Radio Buttons Begin Here -->                     
                     <label for="goalies">Goalies</label>
                     <input type="radio" id="goalies" name="position">
                     <label for="defenders">Defenders</label>
@@ -48,6 +49,9 @@
                     <input type="radio" id="midfielders" name="position">
                     <label for="forwards">Forwards</label>
                     <input type="radio" id="forwards" name="position">
+         
+                    <label for="forwards">All</label>
+                    <input type="radio" id="all" name="position">
                 </div>                
                 <section class="reserves" id="reserves">
 <!---- This is where Template Items Go -->
@@ -56,10 +60,10 @@
         </div>
         <div class="pitch">
             <h2>Pitch Graphic</h2>
-            <ul id="forward">Forward</ul>
-            <ul id="midfield">Midfield</ul>
-            <ul id="defense">Defense</ul>
-            <ul id="goal">Goal</ul>
+            <ul id="line1">Forward</ul>
+            <ul id="line2">Midfield</ul>
+            <ul id="line3">Defense</ul>
+            <ul id="line4">Goal</ul>
         </div>
     </div>
 </body>

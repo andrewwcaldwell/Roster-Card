@@ -1,3 +1,34 @@
+//Filter Function for Radio Buttons
+function filterPlayers(players, comparative) {
+    for (var i = 0; i < players.length; i++) {
+        // Show it.
+        if (players[i].position === comparative) {
+            var show = document.getElementById('p-' + players[i].id);
+            show.classList.remove('radioHide');
+            // Hide it.
+        } else {
+            var hide = document.getElementById('p-' + players[i].id);
+            hide.classList.add('radioHide');
+        }
+    //console.log(players[i].id);
+    }
+}
+// Highlight Function for Radio Buttons
+function highlightPlayers(players, comparative) {
+    for (var i = 0; i < players.length; i++) {
+        // Highlight it.
+        if (players[i].position === comparative) {
+            var show = document.getElementById('p-' + players[i].id);
+            show.classList.add('highlight');
+            // Dont Higlight.
+        } else {
+            var hide = document.getElementById('p-' + players[i].id);
+            hide.classList.remove('highlight');
+        }
+    //console.log(players[i].id);
+    }
+}
+
 window.addEventListener('load', function () {
     var players = require('./players');
     //console.log(players);
@@ -16,7 +47,7 @@ window.addEventListener('load', function () {
         
     //console.log(data);
     var element = document.createElement('div');
-    //element.setAttribute('id', 'draggable');
+    element.setAttribute('id', 'p-' + players[i].id);
     element.classList.add('footballer');
     element.classList.add('draggable');
     element.innerHTML=data;
@@ -39,6 +70,45 @@ window.addEventListener('load', function () {
         //out: function(event, ui){
             //$(this).droppable('option', 'accept', '.drag-item');
             //} 
+    });
+    
+    
+    // Radio Button Interactions
+    var g = document.getElementById('goalies');
+    g.addEventListener('click', function () {
+        highlightPlayers(players, 'G');
+    });
+    
+    var d = document.getElementById('defenders');
+    d.addEventListener('click', function () {
+        highlightPlayers(players, 'D');
+    });
+
+    var m = document.getElementById('midfielders');
+    m.addEventListener('click', function () {
+        highlightPlayers(players, 'M');
+    });
+    
+    var f = document.getElementById('forwards');
+    f.addEventListener('click', function () {
+        highlightPlayers(players, 'F');
+    });
+    /// All Radio For Filter Players 
+    /* 
+    var all = document.getElementById('all');
+    all.addEventListener('click', function () {
+        for (var i = 0; i < players.length; i++) {
+        var show = document.getElementById('p-' + players[i].id);
+            show.classList.remove('radioHide');
+        }
+    });
+    */    
+    var all = document.getElementById('all');
+    all.addEventListener('click', function () {
+        for (var i = 0; i < players.length; i++) {
+        var hide = document.getElementById('p-' + players[i].id);
+            hide.classList.remove('highlight');
+        }
     });
     
     /*
