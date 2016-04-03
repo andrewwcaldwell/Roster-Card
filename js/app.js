@@ -28,25 +28,35 @@ function highlightPlayers(players, comparative) {
     //console.log(players[i].id);
     }
 }
-var players = require('firebase');
-console.log(players);
 
 //// Start Interactions / Window Event
 window.addEventListener('load', function () {
     //var players = require('./players');
     //console.log(players);
-    //var players = require('firebase');
-    //console.log(players);
+    
+/// Firebase Pull Attempt
+    var Firebase = require('firebase');
+    var players = new Firebase('https://team-roster.firebaseio.com/players/');
+    
+    players.on('value', function(viewJSON) {
+        console.log(viewJSON.val());
+    });
+    
     
     var parent = document.getElementById('reserves');
     var form = _.template(document.getElementById('tempRoster').textContent);
     
+    console.log(players.id);
+    
     for (var i = 0; i < players.length; i++) {
+        //console.log(players[i].id);
+        
+        
         var data = form ({
             player: {
-                name: players[i].name,
-                position: players[i].position,
-                number: players[i].number,
+                name: players[i].id.name,
+                position: players[i].id.position,
+                number: players[i].id.number,
             }
         });
         
