@@ -46,5 +46,6 @@ window.addEventListener('load', function () {
         var newGuy = new Player(players[i].name, players[i].age, players[i].number, players[i].position);
         var friday = new Firebase('https://team-roster.firebaseio.com/player/');
         friday.set(newGuy);
-    }  
+    }
+*/  
 });

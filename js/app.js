@@ -31,36 +31,47 @@ function highlightPlayers(players, comparative) {
 
 //// Start Interactions / Window Event
 window.addEventListener('load', function () {
-    //var players = require('./players');
-    //console.log(players);
-    
-/// Firebase Pull Attempt
+
+/*/////// FIREBASE  PUll //////////////
     var Firebase = require('firebase');
-    var players = new Firebase('https://team-roster.firebaseio.com/players/');
     
-    players.on('value', function(viewJSON) {
-        console.log(viewJSON.val());
+    
+    //var players = new Firebase('https://team-roster.firebaseio.com/players/');
+    var data;
+    
+    players.once('value', function(viewJSON) {
+        //console.log(viewJSON.val());
+        var data = viewJSON.val();
+        console.log(data);
+        
+        for (var i = 0; i < data.length; i++) {
+            console.log(data[i]);
+        }
     });
     
-    
+/*/////// THIS IS PULLING FROM JS - NOT FIREBASE //////////////
+    var players = require('./players');
+        //console.log(test);
     var parent = document.getElementById('reserves');
     var form = _.template(document.getElementById('tempRoster').textContent);
     
-    console.log(players.id);
-    
     for (var i = 0; i < players.length; i++) {
-        console.log(players[i].i);
+        console.log(players[i]);
         
         
         var data = form ({
             player: {
-                name: players[i].id.name,
-                position: players[i].id.position,
-                number: players[i].id.number,
+                name: players[i].name,
+                position: players[i].position,
+                number: players[i].number,
             }
         });
         
     //console.log(data);
+    
+
+/////////// DOM MANIPULATION - Create and Append ///////////
+    //// Should still be inside for Loop
     var element = document.createElement('div');
     element.setAttribute('id', 'p-' + players[i].id);
     element.classList.add('footballer');
@@ -68,7 +79,10 @@ window.addEventListener('load', function () {
     element.innerHTML=data;
     parent.appendChild(element);
     
-    }
+    };
+
+
+/////////// Drag -n- Drop ////////////////////////
     $('.footballer').draggable( {
         revert: true,
         cursor: 'crosshair',
@@ -123,9 +137,10 @@ window.addEventListener('load', function () {
         for (var i = 0; i < players.length; i++) {
         var hide = document.getElementById('p-' + players[i].id);
             hide.classList.remove('highlight');
-        }
-    });
-    
+    }
+
+});
+});
     
     // Firebase set code from Form.js
     /*
@@ -191,4 +206,3 @@ window.addEventListener('load', function () {
         accept: '.footballer'
     });
     */   
-});
