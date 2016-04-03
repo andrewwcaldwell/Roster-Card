@@ -20,12 +20,12 @@ window.addEventListener('load', function () {
     submit.addEventListener('click', function () {
         //console.log('push it');
         var pName = document.getElementById('playerName').value;
-        var pAge = document.getElementById('playerAge').value;
-//        var pAgeString = document.getElementById('playerAge').value;
-//        var pAge = parseInt(pAgeString);
-        var pNumber = document.getElementById('playerNumber').value;
-//        var pNumberString = document.getElementById('playerNumber').value;
-//        var pNumber = parseInt(pNumberString);
+        //var pAge = document.getElementById('playerAge').value;
+        var pAgeString = document.getElementById('playerAge').value;
+        var pAge = parseInt(pAgeString);
+//        var pNumber = document.getElementById('playerNumber').value;
+        var pNumberString = document.getElementById('playerNumber').value;
+        var pNumber = parseInt(pNumberString);
         var pPosition = document.getElementById('playerPosition').value;
         var newPlayer = new Player(pName, pAge, pNumber, pPosition);
         console.log(newPlayer);
