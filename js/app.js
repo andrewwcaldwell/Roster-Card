@@ -39,8 +39,8 @@ window.addEventListener('load', function () {
 
 ////// FIREBASE  PUll //////
     var Firebase = require('firebase');
-    var request = new Firebase('https://team-roster.firebaseio.com/players/');
-
+    var request = new Firebase('https://team-roster.firebaseio.com/players');
+    
     request.on('child_added', function(viewJSON) {
         var players = viewJSON.val();
         //console.log(players);
@@ -48,8 +48,12 @@ window.addEventListener('load', function () {
         var parent = document.getElementById('reserves');
         var form = _.template(document.getElementById('tempRoster').textContent);
         
-        for (var key in players) {
-            if (players.hasOwnProperty(key)) {
+        console.log(Object.keys(players));
+        
+        //for (var key in players) {
+            //console.log(key);
+            //console.log(players);
+            //if (players.hasOwnProperty(key)) {
             //console.log(players[i]);
             //console.log('show me door NO.2');
                 var data = form ( {
@@ -70,9 +74,9 @@ window.addEventListener('load', function () {
                 element.innerHTML=data;
                 parent.appendChild(element);
     
-            } //<=== END If Validation of Key
+        //    } //<=== END If Validation of Key
             
-        }//<=== END For Loop to Read / Set Firebase Data
+    //    }//<=== END For Loop to Read / Set Firebase Data
         
     }); //<== END Firebase "Request"
                
