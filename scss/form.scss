@@ -1,0 +1,53 @@
+////// Background Image and Base Pad //////
+body {
+    background-image: url(../resource/background2.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0;
+}
+.basePad {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+}
+
+.container {
+    background-color: black;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    height: 550px;
+    width: 100%;
+    border: 1px solid lightgray;
+    border-radius: 40px;
+    padding: 20px;
+        margin: 0;
+}
+.title {
+    color: white;   
+}
+
+input {
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    height: 25px;
+    width: 300px;
+    margin: 10px;
+}
+#addButton {
+    width: 100px;
+    height: 25px;
+    background-color: darkblue;
+    opacity: .99;
+    margin: 25px;
+    //color: white;
+    
+}
