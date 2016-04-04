@@ -57,7 +57,7 @@ window.addEventListener('load', function () {
         element.setAttribute('id', 'p-' + players.id);
         element.classList.add('footballer');
         element.classList.add('draggable');
-        element.innerHTML=data;
+        element.innerHTML = data;
         parent.appendChild(element);
     
         
@@ -102,87 +102,51 @@ window.addEventListener('load', function () {
             var hide = document.getElementById('p-' + players.id);
             hide.classList.remove('highlight');
         }); //<== END "All" Listener
-        
-                   
+        var holder = ""
         ////// Drag -n- Drop //////
         $('.footballer').draggable( {
             containment: 'document',
             revert: true,
-            cursor: 'crosshair',
-            //snap: true,
-            //snapMode: inner,
-        });  
-   
-        $('.slot').droppable({
-            hoverClass: 'drop-hover',
-            tolerance: 'pointer',
-            drop: function(event, ui) {
-                var dropped = ui.draggable;
-                var droppedOn = $(this);
-                $(droppedOn).text('');
-                $(dropped).detach().css({top: 0,left: 0}).appendTo(droppedOn);
-            },
-       }); // <== END Drop Event Settings 
+            cursor: 'crosshair',  
+        });//<== END Droppable
+
+        
+        ////// Function for Callback to Set Droppables //////
+        function populate(slotId, line) {
+            $(slotId).droppable({
+                hoverClass: 'drop-hover',
+                tolerance: 'pointer',
+                accept: '.footballer',
+                drop: function(event, ui) {
+                    console.log();
+                    $(this).addClass('FULL');
+                    $(this).droppable('option','accept','none');
+                    $(this).text('');
+                    var dropped = ui.draggable;
+                    $(dropped).detach().css({top: -2,left: +10}).appendTo(this);
+                
+                    var parent = document.getElementById(line)
+                    var Num = document.createElement('li');
+                    Num.textContent = '#' + players.number;
+                    Num.classList.add('bubble');
+                    parent.appendChild(Num);
+                } //<== END Drop Event Settings
+            }) //<== END Droppable
+        } //<== END Function for Call Backs
+        
+////// Function Call Backs to Set the "Field" //////        
+        populate('#one', 'line4');
+        populate('#two', 'line3');
+        populate('#three', 'line3');
+        populate('#four', 'line3');
+        populate('#five', 'line3');
+        populate('#six', 'line2');
+        populate('#seven', 'line2');
+        populate('#eight', 'line2');
+        populate('#nine', 'line2');
+        populate('#ten', 'line1');
+        populate('#eleven', 'line1');
         
     }); //<== END Firebase "Request"
     
-      
-});
-    
-/*///// ALL BULLSHIT BELOW - KEEPING FOR POTENTIAL FUTURE USE //////
-    var one = document.getElementById('one');
-    $('#one').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var two = document.getElementById('two');
-    $('#two').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var three = document.getElementById('three');
-    $('#three').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var four = document.getElementById('four');
-    $('#four').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var five = document.getElementById('five');
-    $('#five').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var six = document.getElementById('six');
-    $('#six').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var seven = document.getElementById('seven');
-    $('#seven').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var eight = document.getElementById('eight');
-    $('#eight').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var nine = document.getElementById('nine');
-    $('#nine').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var ten = document.getElementById('ten');
-    $('#ten').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-    var eleven = document.getElementById('eleven');
-    $('#eleven').droppable({
-        accept: '.footballer'
-    });//<== END
-    
-*/
+}); //<== END BASE FUNCTION

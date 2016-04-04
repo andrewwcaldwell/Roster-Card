@@ -62,7 +62,6 @@ h2 {
     text-align: center;
     color: white;
     height: 40px;
-    //width: 300px;
     margin: 0;
     
     border: 1px solid green;
@@ -134,17 +133,57 @@ h2 {
 
 ////// Bottom Pitch Graphic //////
 .pitch {
-    background-image: url('../resource/pitch_360.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: white;
-    text-align: center;
     opacity: 0.95;
-    height: 100%;
-    width: 500px;
+    height: 250px;
+    width: 100%;
     
-    border: 1px solid blue;
+    //border: 1px solid blue;
+}
+.positions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 25%;
+    width: 100%;
+    margin: 0;
+    
+    //border: 1px solid purple;
+}
+
+#line1 {
+    width: 50%;
+    margin-left: 25%;
+}
+#line2 {
+    width: 70%;
+    margin-left: 15%;
+}
+#line3 {
+    width: 90%;
+    margin-left: 5%;
+}
+#line4 {
+    width: 100%;
+}
+
+.bubble {
+    background-image: url(../resource/man.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    height: 70px;
+    width: 70px;
 }
 
 ////// Hover State Rule for Droppables JS //////
