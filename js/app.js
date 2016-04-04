@@ -69,10 +69,15 @@ window.addEventListener('load', function () {
             var dropped = ui.draggable;
             var droppedOn = $(this);
             $(droppedOn).text('');
-            $(dropped).detach().css({top: 0,left: 0, 'z-index': 1}).appendTo(droppedOn);
+            $(dropped).detach().css({top: 0,left: 0}).appendTo(droppedOn);
         },
         
     });
+    function starter() {
+        $('li .footballer').addClass('active');
+    }
+    
+    
     
     
     // Radio Button Interactions
