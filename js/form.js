@@ -29,7 +29,7 @@ window.addEventListener('load', function () {
         var pPosition = document.getElementById('playerPosition').value;
         var newPlayer = new Player(pName, pAge, pNumber, pPosition);
         console.log(newPlayer);
-        var fbPlayer = new Firebase('https://team-roster.firebaseio.com/players/' + newPlayer.id);
+        var fbPlayer = new Firebase('https://team-roster.firebaseio.com/player/' + newPlayer.id);
         fbPlayer.set(newPlayer, function () {
             console.log('New dude added');
         });
@@ -37,15 +37,15 @@ window.addEventListener('load', function () {
     
     
     
-//    var currentPlayers = new Firebase('https://team-roster.firebaseio.com/players/' + players[i].id);
+//    var currentPlayers = new Firebase('https://team-roster.firebaseio.com/player/');
 
-/*
-// THIS IS THE CODE THAT LOADED THE INITIAL ROSTER INTO FIREBASE
+
+/*/ THIS IS THE CODE THAT LOADED THE INITIAL ROSTER INTO FIREBASE
 // DO NOT RUN/UNCOMMENT THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     for (var i = 0; i < players.length; i++) {
         var newGuy = new Player(players[i].name, players[i].age, players[i].number, players[i].position);
-        var friday = new Firebase('https://team-roster.firebaseio.com/players/' + newGuy.id);
+        var friday = new Firebase('https://team-roster.firebaseio.com/player/');
         friday.set(newGuy);
     }
-*/    
+*/  
 });
