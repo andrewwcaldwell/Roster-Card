@@ -105,21 +105,24 @@ window.addEventListener('load', function () {
         
                    
         ////// Drag -n- Drop //////
-        $('.footballer').draggable({
+        $('.footballer').draggable( {
+            containment: 'document',
             revert: true,
             cursor: 'crosshair',
-        }); // <== END Drag Event Settings 
-    
-        $(".slot").droppable({
-            hoverClass: "drop-hover",
-            tolerance: 'fit',
-            drop: function(event, ui) { 
-            //$(this).html(ui.draggable.remove().html());
-            $(this).droppable('widget');
-            console.log(widget);
+            //snap: true,
+            //snapMode: inner,
+        });  
+   
+        $('.slot').droppable({
+            hoverClass: 'drop-hover',
+            tolerance: 'pointer',
+            drop: function(event, ui) {
+                var dropped = ui.draggable;
+                var droppedOn = $(this);
+                $(droppedOn).text('');
+                $(dropped).detach().css({top: 0,left: 0}).appendTo(droppedOn);
             },
-
-        }); // <== END Drop Event Settings 
+       }); // <== END Drop Event Settings 
         
     }); //<== END Firebase "Request"
     
