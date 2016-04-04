@@ -1,35 +1,29 @@
 ////// Filter Function for Radio Buttons //////
 function filterPlayers(players, comparative) {
-    for (var i = 0; i < players.length; i++) {
-        // Show it.
-        if (players[i].position === comparative) {
-            var show = document.getElementById('p-' + players[i].id);
-            show.classList.remove('radioHide');
-        // Hide it.
-        } else {
-            var hide = document.getElementById('p-' + players[i].id);
-            hide.classList.add('radioHide');
-        } //<== END
-            //console.log(players[i].id);
-    } //<== END Filter For Loop
+    // Show it.
+    if (players.position === comparative) {
+        var show = document.getElementById('p-' + players.id);
+        show.classList.remove('radioHide');
+    // Hide it.
+    } else {
+        var hide = document.getElementById('p-' + players.id);
+        hide.classList.add('radioHide');
+    } //<== END
     
 } //<== END Flter Function
 
 
 ////// Highlight Function for Radio Buttons //////
 function highlightPlayers(players, comparative) {
-    for (var i = 0; i < players.length; i++) {
-        // Highlight it.
-        if (players[i].position === comparative) {
-            var show = document.getElementById('p-' + players[i].id);
-            show.classList.add('highlight');
-        // Don't Higlight.
-        } else {
-            var hide = document.getElementById('p-' + players[i].id);
-            hide.classList.remove('highlight');
-        } //<== END
-            //console.log(players[i].id);
-    } //<== END Highlight For Loop
+    // Highlight it.
+    if (players.position === comparative) {
+        var show = document.getElementById('p-' + players.id);
+        show.classList.add('highlight');
+    // Don't Higlight.
+    } else {
+        var hide = document.getElementById('p-' + players.id);
+        hide.classList.remove('highlight');
+    } //<== END
     
 } //<== END Highlight Funtion
 
@@ -48,38 +42,68 @@ window.addEventListener('load', function () {
         var parent = document.getElementById('reserves');
         var form = _.template(document.getElementById('tempRoster').textContent);
         
-        console.log(Object.keys(players));
-        
-        //for (var key in players) {
-            //console.log(key);
-            //console.log(players);
-            //if (players.hasOwnProperty(key)) {
-            //console.log(players[i]);
-            //console.log('show me door NO.2');
-                var data = form ( {
-                    player: {
-                        name: players.name,
-                        position: players.position,
-                        number: players.number,
-                    
-                    } //<== END Player[i] / Template Object Relationship
+        //console.log(Object.keys(players));
+        var data = form ( {
+            player: {
+                name: players.name,
+                position: players.position,
+                number: players.number,    
+            } //<== END Player[i] / Template Object Relationship
                 
-                }); //<== END HTML Template Structuring Function
-            
-            ////// DOM MANIPULATION - Create and Append //////
-                var element = document.createElement('div');
-                element.setAttribute('id', 'p-' + players.id);
-                element.classList.add('footballer');
-                element.classList.add('draggable');
-                element.innerHTML=data;
-                parent.appendChild(element);
+        }); //<== END HTML Template Structuring Function
+        
+        ////// DOM MANIPULATION - Create and Append //////
+        var element = document.createElement('div');
+        element.setAttribute('id', 'p-' + players.id);
+        element.classList.add('footballer');
+        element.classList.add('draggable');
+        element.innerHTML=data;
+        parent.appendChild(element);
     
-        //    } //<=== END If Validation of Key
-            
-    //    }//<=== END For Loop to Read / Set Firebase Data
+        
+         ////// Individual Radio Button Interactions //////
+        var g = document.getElementById('goalies');
+        g.addEventListener('click', function () {
+            console.log('Goalies Clicked');
+            highlightPlayers(players, 'G');
+        }); //<== END "G" Listener
+    
+        var d = document.getElementById('defenders');
+        d.addEventListener('click', function () {
+            console.log('Defenders Clicked');
+            highlightPlayers(players, 'D');
+        }); //<== END "D" Listener
+
+        var m = document.getElementById('midfielders');
+        m.addEventListener('click', function () {
+            console.log('Midfielders Clicked');
+            highlightPlayers(players, 'M');
+        }); //<== END "M" Listener
+
+        var f = document.getElementById('forwards');
+        f.addEventListener('click', function () {
+            console.log('Forwards Clicked');
+            highlightPlayers(players, 'F');
+        }); //<== END "F" Listener
+        
+        
+        ///// "All" Radio For Filter Players //////
+        /* 
+        var all = document.getElementById('all');
+        all.addEventListener('click', function () {
+            var show = document.getElementById('p-' + players.id);
+            show.classList.remove('radioHide');
+        });*/ //<== END "All" Listener
+                
+        
+        var all = document.getElementById('all');
+        all.addEventListener('click', function () {
+            console.log('All Clicked');
+            var hide = document.getElementById('p-' + players.id);
+            hide.classList.remove('highlight');
+        }); //<== END "All" Listener
         
     }); //<== END Firebase "Request"
-               
                
     ////// Drag -n- Drop //////
 
@@ -98,50 +122,7 @@ window.addEventListener('load', function () {
             },
 
     }); // <== END Drop Event Settings 
-    
-    
-    ////// Individual Radio Button Interactions //////
-    var g = document.getElementById('goalies');
-    g.addEventListener('click', function () {
-        highlightPlayers(players, 'G');
-    }); //<== END "G" Listener
-    
-    var d = document.getElementById('defenders');
-    d.addEventListener('click', function () {
-        highlightPlayers(players, 'D');
-    }); //<== END "D" Listener
-
-    var m = document.getElementById('midfielders');
-    m.addEventListener('click', function () {
-        highlightPlayers(players, 'M');
-    }); //<== END "M" Listener
-
-    var f = document.getElementById('forwards');
-    f.addEventListener('click', function () {
-        highlightPlayers(players, 'F');
-    }); //<== END "F" Listener
-        
-        
-    ///// "All" Radio For Filter Players //////
-    /* 
-    var all = document.getElementById('all');
-    all.addEventListener('click', function () {
-        for (var i = 0; i < players.length; i++) {
-        var show = document.getElementById('p-' + players[i].id);
-            show.classList.remove('radioHide');
-        } //<== END "All" For Loop
-    });*/ //<== END "All" Listener
-                
-        
-    var all = document.getElementById('all');
-    all.addEventListener('click', function () {
-        for (var i = 0; i < players.length; i++) {
-            var hide = document.getElementById('p-' + players[i].id);
-            hide.classList.remove('highlight');
-        } //<== END "All" For Loop
-
-    }); //<== END "All" Listener
-     
+      
 });
     
 /*///// ALL BULLSHIT BELOW - KEEPING FOR POTENTIAL FUTURE USE //////
