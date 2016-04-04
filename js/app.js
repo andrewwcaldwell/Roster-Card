@@ -1,4 +1,4 @@
-////// Filter Function for Radio Buttons //////
+////// Filter Function for Position Buttons //////
 function filterPlayers(players, comparative) {
     // Show it.
     if (players.position === comparative) {
@@ -13,7 +13,7 @@ function filterPlayers(players, comparative) {
 } //<== END Flter Function
 
 
-////// Highlight Function for Radio Buttons //////
+////// Highlight Function for Position Buttons //////
 function highlightPlayers(players, comparative) {
     // Highlight it.
     if (players.position === comparative) {
@@ -61,7 +61,7 @@ window.addEventListener('load', function () {
         parent.appendChild(element);
     
         
-         ////// Individual Radio Button Interactions //////
+         ////// Individual Position Button Interactions //////
         var g = document.getElementById('goalies');
         g.addEventListener('click', function () {
             console.log('Goalies Clicked');
@@ -87,7 +87,7 @@ window.addEventListener('load', function () {
         }); //<== END "F" Listener
         
         
-        ///// "All" Radio For Filter Players //////
+        ///// "All" Button For Filter Players //////
         /* 
         var all = document.getElementById('all');
         all.addEventListener('click', function () {
@@ -103,25 +103,26 @@ window.addEventListener('load', function () {
             hide.classList.remove('highlight');
         }); //<== END "All" Listener
         
-    }); //<== END Firebase "Request"
-               
-    ////// Drag -n- Drop //////
-
-    $('.footballer').draggable({
-        revert: true,
-        cursor: 'crosshair',
-    }); // <== END Drag Event Settings 
+                   
+        ////// Drag -n- Drop //////
+        $('.footballer').draggable({
+            revert: true,
+            cursor: 'crosshair',
+        }); // <== END Drag Event Settings 
     
-    $(".slot").droppable({
-        hoverClass: "drop-hover",
-        tolerance: 'fit',
-        drop: function(event, ui) { 
+        $(".slot").droppable({
+            hoverClass: "drop-hover",
+            tolerance: 'fit',
+            drop: function(event, ui) { 
             //$(this).html(ui.draggable.remove().html());
             $(this).droppable('widget');
             console.log(widget);
             },
 
-    }); // <== END Drop Event Settings 
+        }); // <== END Drop Event Settings 
+        
+    }); //<== END Firebase "Request"
+    
       
 });
     
