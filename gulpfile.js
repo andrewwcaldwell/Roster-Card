@@ -6,7 +6,7 @@ var gulpBrowser = require("gulp-browser");
 var uglify = require('gulp-uglify');
 
 // run 'default' gulp cmd to perform an array of tasks!
-gulp.task('default', ['html', 'sass', 'js', 'img']);
+gulp.task('default', ['html', 'sass', 'sassform', 'js', 'img']);
 
 gulp.task('html', function () {
     return gulp.src('./*.html')
@@ -18,6 +18,11 @@ gulp.task('html', function () {
 
 gulp.task('sass', function () {
     return gulp.src('./scss/style.scss')
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+        .pipe(gulp.dest('./public/css'));
+});
+gulp.task('sassform', function (){
+    return gulp.src('./scss/form.scss')
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(gulp.dest('./public/css'));
 });
@@ -35,6 +40,7 @@ gulp.task('img', function () {
 gulp.task('watch', function() {
     gulp.watch('./*.html', ['html']);
     gulp.watch('./scss/*.scss', ['sass']);
+    gulp.watch('./scss/*.scss', ['sassform']);
     gulp.watch('./js/*js', ['js']);
     
 });

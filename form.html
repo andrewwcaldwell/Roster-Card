@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Form</title>
-<!--    <link rel="stylesheet" href="css/style.css">-->
+    <link rel="stylesheet" href="css/form.css">
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://underscorejs.org/underscore-min.js"></script>
@@ -11,10 +11,17 @@
 
 </head>
 <body>
-    <input text="text" class="formBox" id="playerName" placeholder="Name" />
-    <input text="text" class="formBox" id="playerAge" placeholder="Age" />
-    <input text="text" class="formBox" id="playerNumber" placeholder="Number" />
-    <input text="text" class="formBox" id="playerPosition" placeholder="Position" />
-    <input type="submit" id="addButton" value="Add Player" />
+    <div class="basePad">
+        <div class="container">
+            <h1 class="title">Create a New Player</h1>
+            
+            <input text="text" class="formBox" id="playerName" placeholder="Name"/>
+            <input text="text" class="formBox" id="playerAge" placeholder="Age"/>
+            <input text="text" class="formBox" id="playerNumber" placeholder="Number"/>
+            <input text="text" class="formBox" id="playerPosition" placeholder="Position"/>
+            <input type="submit" id="addButton" value="Add Player"/>
+            
+        </div>
+    </div>
 </body>
 </html>
