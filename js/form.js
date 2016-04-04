@@ -1,5 +1,5 @@
 /* jslint browser: true */
-var players = require('./players');
+//var players = require('./players');
 var Firebase = require('firebase');
 
 

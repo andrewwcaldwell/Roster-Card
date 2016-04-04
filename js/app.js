@@ -30,30 +30,39 @@ function highlightPlayers(players, comparative) {
 }
 
 window.addEventListener('load', function () {
-    var players = require('./players');
+    var Firebase = require('firebase');
     //console.log(players);
     
-    var parent = document.getElementById('reserves');
-    var form = _.template(document.getElementById('tempRoster').textContent);
-    
-    for (var i = 0; i < players.length; i++) {
-        var data = form ({
-            player: {
-                name: players[i].name,
-                position: players[i].position,
-                number: players[i].number,
+    var players = new Firebase('https://team-roster.firebaseio.com/players/');
+    players.on('child_added', function(snapshot) {
+        var idObj = (snapshot.val());
+        //console.log(idObj);
+        //console.log(idObj.length);
+        for (var key in idObj) {
+            if (idObj.hasOwnProperty(key)) {
+                var parent = document.getElementById('reserves');
+                var form = _.template(document.getElementById('tempRoster').textContent);
+
+                for (var i = 0; i < players.length; i++) {
+                    var data = form ({
+                        player: {
+                            name: players[i].name,
+                            position: players[i].position,
+                            number: players[i].number,
+                        }
+                    });
+                    //console.log(data);
+                    var element = document.createElement('div');
+                    element.setAttribute('id', 'p-' + players[i].id);
+                    element.classList.add('footballer');
+                    element.classList.add('draggable');
+                    element.innerHTML=data;
+                    parent.appendChild(element);
+
+                }
             }
-        });
-        
-    //console.log(data);
-    var element = document.createElement('div');
-    element.setAttribute('id', 'p-' + players[i].id);
-    element.classList.add('footballer');
-    element.classList.add('draggable');
-    element.innerHTML=data;
-    parent.appendChild(element);
-    
-    }
+        }
+    });
     $('.footballer').draggable( {
         containment: 'document',
         revert: true,
