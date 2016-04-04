@@ -41,15 +41,19 @@ window.addEventListener('load', function () {
     var Firebase = require('firebase');
     var request = new Firebase('https://team-roster.firebaseio.com/players/');
 
-    request.on('child_added', function(viewJSON) {
-        var players = viewJSON.val();
+    request.on('child_added', function(snapshot) {
+        var players = snapshot.val();
         //console.log(players);
         //console.log(players.name);
         var parent = document.getElementById('reserves');
         var form = _.template(document.getElementById('tempRoster').textContent);
         
         for (var key in players) {
-            if (players.hasOwnProperty(key)) {
+            //console.log(key);
+            if (players.hasOwnProperty('name')) {
+                console.log(('name').value);
+            }
+            //if (players.hasOwnProperty(key)) {
             //console.log(players[i]);
             //console.log('show me door NO.2');
                 var data = form ( {
@@ -70,7 +74,7 @@ window.addEventListener('load', function () {
                 element.innerHTML=data;
                 parent.appendChild(element);
     
-            } //<=== END If Validation of Key
+            //} //<=== END If Validation of Key
             
         }//<=== END For Loop to Read / Set Firebase Data
         
