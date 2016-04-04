@@ -39,21 +39,25 @@
             </section>
             <section class="rightPayne">
                 <div class="inputs">
-                    <h2>Reserves</h2>
+                    <h2 class="title">Reserves</h2>
 <!---- Filter Input Field Here>
                     <input type="text" id="search-box" placeholder="Player name">
-<!---- Radio Buttons Begin Here -->                     
-                    <label for="goalies">Goalies</label>
-                    <input type="radio" id="goalies" name="position">
-                    <label for="defenders">Defenders</label>
-                    <input type="radio" id="defenders" name="position">
-                    <label for="midfielders">Midfielders</label>
-                    <input type="radio" id="midfielders" name="position">
-                    <label for="forwards">Forwards</label>
-                    <input type="radio" id="forwards" name="position">
-         
-                    <label for="forwards">All</label>
-                    <input type="radio" id="all" name="position">
+<!---- Position Buttons Begin Here -->
+                    <div class="buttons">
+                        <label for="goalies">Highlight Positions:</label>
+                    
+                        <button type="button" id="goalies" name="position">Goalies</button>
+                    
+                        <button type="button" id="defenders" name="position">Defenders</button>
+                    
+                        <button type="button" id="midfielders" name="position">Midfielders</button>
+                    
+                        <button type="button" id="forwards" name="position">Forwards</button>
+                    
+                        <button type="button" id="all" name="position">Clear</button>
+                        
+                        <a href="form.html">Create New</a>
+                    </div>
                 </div>                
                 <section class="reserves" id="reserves">
 <!---- This is where Template Items Go -->
@@ -68,7 +72,6 @@
             <ul id="line4">Goal</ul>
         </div>
     </div>
-    <a href="form.html">Create a Player</a>
 </body>
 
 </html>
