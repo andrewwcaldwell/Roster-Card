@@ -35,9 +35,14 @@ window.addEventListener('load', function () {
     var Firebase = require('firebase');
     var request = new Firebase('https://team-roster.firebaseio.com/players');
     
+    
+    
+    
+    
+    
     request.on('child_added', function(viewJSON) {
         var players = viewJSON.val();
-        //console.log(players);
+        console.log(players);
         //console.log(players.name);
         var parent = document.getElementById('reserves');
         var form = _.template(document.getElementById('tempRoster').textContent);

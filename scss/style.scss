@@ -19,21 +19,19 @@ ul {
     padding: 0;
 }
 h2 {
-    background-color: black;
+    //background-color: black;
     text-align: center;
     color: white;
     font-size: 30px;
     height: auto;
-    margin: 0;
+    margin: 5px;
 }
 
 ////// Parent Container of Interactive Section //////
 .container {
-    background-color: black;
-    opacity: 0.7;
     display: flex;
     flex-direction: row;
-    height: 550px;
+    height: 500px;
     width: 100%;
     margin: 0;
 }
@@ -41,39 +39,47 @@ h2 {
 ////// Left-Hand Section -- Red Outline //////
 .leftPayne {
     background-color: black;
+    opacity: .75;
     color: white;
     text-align: center;
     height: 100%;
     width: 25%;
     margin: 0;
+    margin-right: 20px;
     
-    border: 2px solid red;
+    //border: 2px solid white darkgray darkgray white;
+    border-radius: 20px;
 }
 .gamePosition {
     display: flex;
     flex-direction: column;
-    //width: 300px;
     margin: 0;
     padding: 0;
     
     //border: 1px solid purple;
 }
 .slot {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     height: 40px;
     margin: 0;
     
-    border: 1px solid green;
+    //border: 1px solid green;
 }
 
 /////// Right-Hand Section -- Cyan Outline //////
 .rightPayne {
+    background-color: black;
+    opacity: .75;
     display: flex;
     flex-direction: column;
     width: 75%;
-    
-    border: 1px solid cyan;
+    padding-left: 35px;
+    border-radius: 20px;
+    //border: 1px solid white;
+    //border: 1px solid cyan;
 }
 .inputs {
     display: flex;
@@ -82,14 +88,13 @@ h2 {
     align-items: center;
     color: white;
     padding: 5px;
+    height: 30px;
     
-    border: 1px solid white;
+    //border: 1px solid white;
 }
 .title {
     display: flex;
-    width: 30%;
-    
-    //border: 1px solid yellow;
+    width: 20%;
 }
 .buttons {
     display: flex;
@@ -100,32 +105,45 @@ h2 {
     
     //border: 1px solid pink;
 }
+a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background-color: white;
+    opacity: 1;
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    height: 16px;
+    width: 70px;
+    margin-bottom: 1px;
+}
 
 ////// Rules on JS Template Created Elements //////
 .reserves {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
-    
-    //overflow: scroll;
-    
-    
-    background-color: black;
-    color: white;
+
+    //overflow: scroll;    
 }
 .footballer {
+    background-color: black;
+    color: white;
+    border: 1px solid darkgray;
+    border-radius: 15px;
+    font-size: 14px;
     display: flex;
     flex-basis: row;
     justify-content: space-around;
     align-items: center;
     width: 250px;
-    height: 35px;
-    background-color: black;
-    color: white;
-    border: 1px solid darkgray;
-    border-radius: 20px;
-    margin: 5px;
+    height: 30px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .name, .number, .position {
     margin: 5px;
@@ -138,8 +156,9 @@ h2 {
     justify-content: center;
     color: white;
     opacity: 0.95;
-    height: 250px;
+    height: 220px;
     width: 100%;
+    padding: 20px;
     
     //border: 1px solid blue;
 }
@@ -155,19 +174,20 @@ h2 {
 }
 
 #line1 {
-    width: 50%;
+    width: 47%;
     margin-left: 25%;
 }
 #line2 {
-    width: 70%;
+    width: 67%;
     margin-left: 15%;
 }
 #line3 {
-    width: 90%;
+    width: 87%;
     margin-left: 5%;
 }
 #line4 {
-    width: 100%;
+    width: 97%;
+    padding-bottom: 10px;
 }
 
 .bubble {
@@ -196,7 +216,8 @@ h2 {
     //display: none;
 }
 .highlight {
-    background: linear-gradient(to bottom right, #fff400, #FF9A00);
+    background: linear-gradient(to bottom right, #002BCC, #182C76);
+    //background: linear-gradient(to bottom right, #fff400, #FF9A00);
     border: 1px solid white;
     opacity: .85;
 }
