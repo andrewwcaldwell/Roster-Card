@@ -1,7 +1,7 @@
 {
-  "name": "hw-d.23",
+  "name": "Roster Card",
   "version": "1.0.0",
-  "description": "Drag-n-Drop Game Card",
+  "description": "Drag-n-Drop Soccer Line-up Game",
   "main": "gulpfile.js",
   "dependencies": {
     "firebase": "^2.4.2",
@@ -18,12 +18,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andrewwcaldwell/HW-D.23.git"
+    "url": "git+https://github.com/andrewwcaldwell/Roster-Card.git"
   },
   "author": "Andrew Caldwell",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/andrewwcaldwell/HW-D.23/issues"
+    "url": "https://github.com/andrewwcaldwell/Roster-Card/issues"
   },
-  "homepage": "https://github.com/andrewwcaldwell/HW-D.23#readme"
+  "homepage": "https://github.com/andrewwcaldwell/Roster-Card#readme"
 }
