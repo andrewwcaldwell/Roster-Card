@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var htmlhint = require('gulp-htmlhint');
 var htmlmin = require('gulp-htmlmin');
 var sass = require('gulp-sass');
-var gulpBrowser = require("gulp-browser");
 var uglify = require('gulp-uglify');
 
 // run 'default' gulp cmd to perform an array of tasks!
@@ -29,7 +28,6 @@ gulp.task('sassform', function (){
 
 gulp.task('js', function () {
     return gulp.src('./js/*.js')
-        .pipe(gulpBrowser.browserify())
         .pipe(gulp.dest('./public/js/'));
 });
 

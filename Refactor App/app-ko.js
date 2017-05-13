@@ -1,4 +1,5 @@
-module.exports = [
+/* Start KO Refactor */
+var team = [
     { id: 0, name: 'Petr Cech', age: 33, number: 33, position: 'G', status: 'reserve' }, 
     { id: 1, name: 'Matthew Macey', age: 21, number: 49, position: 'G', status: 'reserve' }, 
     { id: 2, name: 'David Ospina', age: 27, number: 13, position: 'G', status: 'reserve' }, 
@@ -33,3 +34,4 @@ module.exports = [
     { id: 31, name: 'Theo Walcott', age: 27, number: 14, position: 'F', status: 'reserve' }, 
     { id: 32, name: 'Danny Wellbeck', age: 25, number: 23, position: 'F', status: 'reserve' }
 ];
+
