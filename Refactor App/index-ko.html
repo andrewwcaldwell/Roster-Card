@@ -14,15 +14,18 @@
     <!-- Firebase Connection - Depracated
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script> -->
 </head>
-
 <body>
     <section class="leftPayne">
         <h2 data-bind="text: name"></h2>
+        <img data-bind="attr: {src: logoSrc}">
         <p data-bind="text: nickname"></p>
-        <div class="teamImg"></div>
-        <button data-bind="click: nextTeam">Next</button>
-        <button data-bind="click: lastTeam">Last</button>
-        <p> Team No. <span data-bind="text: val"></span></p>
+        <div class="teamImg"></div-->
+        
+        <button data-bind="click: last">Last</button>
+        <button data-bind="click: next">Next</button>
+        
+        <p> Team No. <span data-bind="text: counter"></span></p>
+        
         <h2>Starting XI</h2>
         <ul class="gamePosition">
             <li class="slot" id="one">G</li>

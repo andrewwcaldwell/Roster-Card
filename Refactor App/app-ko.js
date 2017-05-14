@@ -1,4 +1,4 @@
-// ------ Local Data Set - Send to Module
+// ----- Local Data Set - Send to Module
 const teamData = [
     { 
         teamId: 0,
@@ -40,16 +40,16 @@ const teamData = [
             { id: 31, name: 'Theo Walcott', age: 27, number: 14, position: 'F', status: 'reserve' }, 
             { id: 32, name: 'Danny Wellbeck', age: 25, number: 23, position: 'F', status: 'reserve' }
         ]
-}, 
+    }, 
     {
         teamId: 1,
         teamName: 'Chelsea',
         teamNickname: 'The Blues',
         teamLogo: 'resource/Chelsea.png',
         teamPlayers: [
-            { id: 0, name: 'Chelsea Guy', age: 33, number: 1, position: 'G', status: 'reserve' }
+            { id: 0, name: 'Chelsea Guy', age: 33, number: 1, position: 'G', status: 'reserve' } 
         ]
-}, 
+    }, 
     { 
         teamId: 2,
         teamName: 'Liverpool',
@@ -57,7 +57,8 @@ const teamData = [
         teamLogo: 'resource/Liverpool.png',
         teamPlayers: [
         { id: 0, name: 'Liverpool Guy', age: 33, number: 1, position: 'G', status: 'reserve' }
-    ] }, 
+        ] 
+    }, 
     { 
         teamId: 3,
         teamName: 'Manchester City',
@@ -66,7 +67,7 @@ const teamData = [
         teamPlayers: [
             { id: 0, name: 'ManCity Guy', age: 33, number: 1, position: 'G', status: 'reserve' }
         ]
-}, 
+    }, 
     {
         teamId: 4,
         teamName: 'Manchester United',
@@ -75,59 +76,57 @@ const teamData = [
         teamPlayers: [
             { id: 0, name: 'ManU Guy', age: 33, number: 1, position: 'G', status: 'reserve' }
         ]
-}, 
+    },  
     {
-    teamId: 5,
-    teamName: 'Tottenham',
-    teamNickname: 'The Hotspur',
-    teamLogo: 'resource/Tottenham.png',
-    teamPlayers: [
-        { id: 0, name: 'ManU Guy', age: 33, number: 1, position: 'G', status: 'reserve' }
-    ]
-}
+        teamId: 5,
+        teamName: 'Tottenham',
+        teamNickname: 'The Hotspur',
+        teamLogo: 'resource/Tottenham.png',
+        teamPlayers: [
+            { id: 0, name: 'Spur Guy', age: 33, number: 1, position: 'G', status: 'reserve' }
+        ]
+    }
 ];
-/* Local Functions ?? Should Have ??
-function counterUp(param, array) {
-    var i = param;
-    if i < array.length {
-        i++;
-    } else {
-        i = array.length;
-    };
+
+// ----- Counts in Context of teamData.length
+function next(i) {
+    if ( i >= 0 && i != teamData.length ){ i++; } else { i = i; }
+    console.log("next ->" + i);
     return i;
-    console.log(i);
 };
-function counterDown(param, array) {
-    var i = param;
-    if i > array.length {
-        i = array.length;
-    } else {
-        i--;
-    };
+function last(i) {
+    if (i == teamData.length || i > 0 ){ i--; } else { i = i; }
+    console.log("last ->" + i);
     return i;
-    console.log(i);
 };
-*/
+
 // ----- Start KO View Model 
-function TeamViewModel() {
-    let i = 0;
-    
-    this.val = ko.observable(i);
-    //this.counter = ko.observable(teamData[0].id);
-    this.name = ko.observable(teamData[0].teamName);
-    this.nickname = ko.observable(teamData[0].teamNickname);
-    
-    // Incrementing is Contextual to passed Array
-    this.nextTeam = function() {
-        if (i >= 0 && i != teamData.length ){ i++; } else { this.val = this.val; }
-        console.log("next ->" + i);
+function TeamSelectViewModel() {
+    //const self = this;
+    this.counter = ko.observable(0);
+    this.next = function() {
+        let current = this.counter();
+        this.counter(next(current));
     };
-    this.lastTeam = function() {
-        if (i == teamData.length || i > 0 ){ i--; } else { i = i; }
-        console.log("last ->" + i);
+    this.last = function() {
+        let current = this.counter();
+        this.counter(last(current));
     };
+    this.name = ko.computed( function() { 
+        let current = this.counter();
+        return teamData[current].teamName 
+    }, this);
+    this.nickname = ko.computed( function() { 
+        let current = this.counter();
+        return teamData[current].teamNickname
+    }, this);
+    this.logoSrc = ko.computed( function() { 
+        let current = this.counter();
+        return teamData[current].teamLogo
+    }, this);
+
 }
 
 // Bootstrap Knockout via applyBindings() on 'View Model'
-ko.applyBindings(new TeamViewModel());
-console.log(teamData[0].teamName);
+ko.applyBindings(new TeamSelectViewModel());
+//console.log(teamData[0].teamName);
